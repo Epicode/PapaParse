@@ -42,7 +42,7 @@
 
 
 	var IS_WORKER = !global.document && !!global.postMessage,
-		IS_PAPA_WORKER = IS_WORKER && /(\?|&)papaworker(=|&|$)/.test(global.location.search),
+		IS_PAPA_WORKER = IS_WORKER && global.location ? /(\?|&)papaworker(=|&|$)/.test(global.location.search) : false,
 		LOADED_SYNC = false, AUTO_SCRIPT_PATH;
 	var workers = {}, workerIdCounter = 0;
 
